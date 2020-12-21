@@ -1,13 +1,18 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
-import { HomepageComponent } from './homepage/homepage.component';
-import { UsersComponent } from './users/users.component';
+import { HomepageComponent } from "./homepage/homepage.component";
+import { UsersComponent } from "./users/users.component";
+
+const APP_ROUTES: Routes = [
+  { path: "", component: HomepageComponent },
+  { path: "users", component: UsersComponent }
+];
 
 @NgModule({
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, RouterModule.forRoot(APP_ROUTES)],
   declarations: [AppComponent, HomepageComponent, UsersComponent],
   bootstrap: [AppComponent],
   providers: []
